@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class FireProjectile : MonoBehaviour {
     [SerializeField] public GameObject projectile;
+    private GameObject _projectile;
     
     void Start() {
         
@@ -11,9 +12,9 @@ public class FireProjectile : MonoBehaviour {
 
     
     void Update() {
-        if (Input.GetKeyDown("Space")) {
-            //instantiate projectile from character
-            //have it move positively along the Y axis
+        if (Input.GetKeyDown("space")) {
+            _projectile = Instantiate(projectile) as GameObject;
+            _projectile.transform.position = transform.TransformPoint(Vector3.forward * 1.5f);
         }
         
     }
