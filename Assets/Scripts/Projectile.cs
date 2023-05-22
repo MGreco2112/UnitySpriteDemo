@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Projectile : MonoBehaviour {
-    public float speed = 5f;
+    public float speed = -5f;
     
     void Start() {
 
@@ -11,9 +11,9 @@ public class Projectile : MonoBehaviour {
 
     
     void Update() {
-        transform.Translate(0, speed * Time.deltaTime, 0);
+        transform.Translate(0, speed * -Time.deltaTime, 0);
 
-        if (transform.position.y > 5) {
+        if (transform.position.y < -5) {
             Destroy(this.gameObject);
         }
     }
